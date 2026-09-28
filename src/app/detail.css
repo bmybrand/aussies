@@ -84,11 +84,15 @@
 @keyframes detail-signal { 0%, 100% { opacity: .3; transform: scale(.75); } 50% { opacity: 1; transform: scale(1); } }
 
 /* Each route uses its own composition and motion language. */
-.detail-page--services .detail-hero { justify-content: flex-end; text-align: right; }
-.detail-page--services .detail-hero__shade { background: linear-gradient(270deg, rgb(0 35 29 / 92%), rgb(0 45 37 / 72%) 43%, rgb(0 20 17 / 12%) 78%); }
-.detail-page--services .detail-hero__content { display: flex; align-items: flex-end; flex-direction: column; }
-.detail-page--services .detail-hero__actions { justify-content: flex-end; }
-.detail-page--services .detail-hero__signal { right: auto; left: max(40px, calc((100vw - 1420px) / 2)); }
+.detail-page--services .detail-hero { justify-content: flex-start; min-height: 820px; text-align: left; }
+.detail-page--services .detail-hero__image { object-position: center; }
+.detail-page--services .detail-hero__shade { background: linear-gradient(90deg, rgb(0 37 31 / 94%) 0%, rgb(0 50 41 / 83%) 30%, rgb(0 44 36 / 42%) 52%, transparent 73%), linear-gradient(180deg, rgb(0 25 21 / 8%), transparent 62%, rgb(0 25 21 / 40%)); }
+.detail-page--services .detail-hero__content { display: flex; width: min(680px, 52%); align-items: flex-start; flex-direction: column; }
+.detail-page--services .detail-hero h1 { max-width: 680px; font-size: clamp(66px, 6.4vw, 98px); line-height: .86; }
+.detail-page--services .detail-kicker { padding: 9px 13px; border: 1px solid rgb(100 224 196 / 38%); border-radius: 99px; background: rgb(0 83 67 / 42%); backdrop-filter: blur(8px); }
+.detail-page--services .detail-hero__content > p:not(.detail-kicker) { max-width: 590px; color: rgb(255 255 255 / 88%); }
+.detail-page--services .detail-hero__actions { justify-content: flex-start; }
+.detail-page--services .detail-hero__signal { right: max(40px, calc((100vw - 1420px) / 2)); bottom: 48px; left: auto; border-color: rgb(255 255 255 / 42%); background: rgb(0 45 37 / 74%); }
 .detail-page--services .detail-journey__image { order: 2; }
 .detail-page--services .detail-journey__copy { align-items: flex-end; padding-right: clamp(54px, 7vw, 118px); padding-left: max(48px, calc((100vw - 1420px) / 2)); text-align: right; }
 .detail-page--services .detail-journey li { flex-direction: row-reverse; }
@@ -116,12 +120,15 @@
 .detail-page--retail .detail-features.is-visible .detail-feature-card { transform: scale(1) rotate(0); }
 .detail-page--retail .detail-journey__image { order: 2; }
 
-.detail-page--healthcare .detail-hero { min-height: 820px; color: var(--brand-deep); background: #eaf6f2; }
-.detail-page--healthcare .detail-hero__image { left: 48% !important; width: 52% !important; border-bottom-left-radius: 180px; object-position: 58% center; }
-.detail-page--healthcare .detail-hero__shade { background: linear-gradient(90deg, #eaf6f2 0 48%, transparent 66%), linear-gradient(0deg, rgb(0 83 67 / 9%), transparent 35%); }
-.detail-page--healthcare .detail-hero__content { width: 46%; }
-.detail-page--healthcare .detail-hero__content > p:not(.detail-kicker) { color: #50665f; }
-.detail-page--healthcare .detail-hero__signal { right: 5%; background: rgb(255 255 255 / 76%); color: var(--brand-deep); }
+.detail-page--healthcare .site-header:not(.site-header--scrolled) { color: var(--brand-deep); }
+.detail-page--healthcare .detail-hero { min-height: 820px; color: var(--brand-deep); background: #f4f2ed; }
+.detail-page--healthcare .detail-hero__image { left: 0 !important; width: 100% !important; border-radius: 0; object-position: center; }
+.detail-page--healthcare .detail-hero__shade { background: linear-gradient(90deg, rgb(247 245 240 / 98%) 0%, rgb(247 245 240 / 96%) 32%, rgb(247 245 240 / 72%) 46%, transparent 66%), linear-gradient(0deg, rgb(0 83 67 / 8%), transparent 38%); }
+.detail-page--healthcare .detail-hero__content { width: min(690px, 48%); }
+.detail-page--healthcare .detail-hero h1 { max-width: 680px; font-size: clamp(66px, 6.3vw, 96px); line-height: .87; }
+.detail-page--healthcare .detail-kicker { padding: 9px 13px; border: 1px solid rgb(0 143 116 / 24%); border-radius: 99px; background: rgb(255 255 255 / 58%); }
+.detail-page--healthcare .detail-hero__content > p:not(.detail-kicker) { max-width: 570px; color: #415c54; }
+.detail-page--healthcare .detail-hero__signal { right: 5%; border-color: rgb(0 83 67 / 15%); background: rgb(255 255 255 / 86%); color: var(--brand-deep); box-shadow: 0 12px 34px rgb(0 83 67 / 8%); }
 .detail-page--healthcare .detail-features { background: #f8fbfa; }
 .detail-page--healthcare .detail-feature-grid { grid-template-columns: repeat(2, 1fr); }
 .detail-page--healthcare .detail-feature-card { min-height: 255px; border: 0; border-radius: 40px 8px 40px 8px; background: #eaf6f2; box-shadow: none; transform: translateY(25px) scale(.94); }
@@ -159,6 +166,7 @@
 
 @media (max-width: 1100px) {
   .detail-hero { min-height: 720px; }.detail-hero__content { width: min(760px, 78%); }.detail-hero__signal { display: none; }
+  .detail-page--services .detail-hero__content { width: min(650px, 66%); }
   .detail-heading { grid-template-columns: 1fr; gap: 24px; }.detail-feature-grid { grid-template-columns: repeat(2, 1fr); }
   .detail-journey { grid-template-columns: 1fr; }.detail-journey__image { min-height: 560px; }.detail-journey__copy { padding: 80px 48px; }
   .detail-faq { grid-template-columns: 1fr; gap: 52px; }
@@ -168,9 +176,9 @@
   .detail-page--services .detail-journey__copy { align-items: flex-start; padding: 72px 48px; text-align: left; }
   .detail-page--services .detail-journey li { flex-direction: row; }
   .detail-page--retail .detail-feature-grid { grid-template-columns: repeat(2, 1fr); }
-  .detail-page--healthcare .detail-hero__image { left: 40% !important; width: 60% !important; }
-  .detail-page--healthcare .detail-hero__shade { background: linear-gradient(90deg, #eaf6f2 0 38%, rgb(234 246 242 / 80%) 58%, rgb(0 40 33 / 22%)); }
-  .detail-page--healthcare .detail-hero__content { width: 62%; }
+  .detail-page--healthcare .detail-hero__image { left: 0 !important; width: 100% !important; }
+  .detail-page--healthcare .detail-hero__shade { background: linear-gradient(90deg, rgb(247 245 240 / 98%) 0%, rgb(247 245 240 / 90%) 46%, rgb(247 245 240 / 28%) 72%); }
+  .detail-page--healthcare .detail-hero__content { width: 58%; }
   .detail-page--products .detail-feature-grid { grid-template-columns: repeat(2, 1fr); }
   .detail-page--resources .detail-journey { grid-template-columns: 1fr; margin-inline: 40px; }
 }
@@ -193,10 +201,10 @@
   .care-orbit { width: min(380px, 100%); }.care-orbit > div:nth-of-type(1) { left: 28%; }
   .device-lineup { min-height: 340px; gap: 10px; transform: scale(.76); transform-origin: center bottom; }.device-shape--duo b { display: none; }
   .resource-index a { grid-template-columns: 40px 1fr 22px; }.resource-index a small { display: none; }
-  .detail-page--services .detail-hero { justify-content: flex-start; text-align: left; }.detail-page--services .detail-hero__content { align-items: flex-start; }.detail-page--services .detail-feature-grid, .detail-page--healthcare .detail-feature-grid, .detail-page--products .detail-feature-grid, .detail-page--resources .detail-feature-grid, .detail-page--retail .detail-feature-grid { grid-template-columns: 1fr; }
+  .detail-page--services .detail-hero { justify-content: flex-start; text-align: left; }.detail-page--services .detail-hero__content { width: 100%; align-items: flex-start; }.detail-page--services .detail-hero h1 { font-size: 55px; }.detail-page--services .detail-hero__shade { background: linear-gradient(90deg, rgb(0 42 35 / 92%), rgb(0 42 35 / 62%) 70%, rgb(0 30 25 / 38%)); }.detail-page--services .detail-feature-grid, .detail-page--healthcare .detail-feature-grid, .detail-page--products .detail-feature-grid, .detail-page--resources .detail-feature-grid, .detail-page--retail .detail-feature-grid { grid-template-columns: 1fr; }
   .detail-page--services .detail-feature-card { display: block; min-height: 290px; }.detail-page--services .detail-feature-card h3 { margin: 72px 0 13px; }.detail-page--services .detail-feature-card p { grid-column: auto; }
   .detail-page--retail .detail-hero, .detail-page--products .detail-hero { align-items: center; padding-bottom: 70px; }.detail-page--retail .detail-hero__content, .detail-page--products .detail-hero__content { width: 100%; }
-  .detail-page--healthcare .detail-hero { color: #fff; }.detail-page--healthcare .detail-hero__image { left: 0 !important; width: 100% !important; border-radius: 0; }.detail-page--healthcare .detail-hero__shade { background: linear-gradient(90deg, rgb(0 55 45 / 91%), rgb(0 45 37 / 55%)); }.detail-page--healthcare .detail-hero__content { width: 100%; }.detail-page--healthcare .detail-hero__content > p:not(.detail-kicker) { color: rgb(255 255 255 / 82%); }
+  .detail-page--healthcare .site-header:not(.site-header--scrolled) { color: #fff; }.detail-page--healthcare .detail-hero { color: #fff; }.detail-page--healthcare .detail-hero__image { left: 0 !important; width: 100% !important; border-radius: 0; object-position: 65% center; }.detail-page--healthcare .detail-hero__shade { background: linear-gradient(90deg, rgb(0 55 45 / 94%), rgb(0 45 37 / 69%) 72%, rgb(0 30 25 / 42%)); }.detail-page--healthcare .detail-hero__content { width: 100%; }.detail-page--healthcare .detail-hero h1 { font-size: 54px; }.detail-page--healthcare .detail-hero__content > p:not(.detail-kicker) { color: rgb(255 255 255 / 86%); }.detail-page--healthcare .detail-kicker { border-color: rgb(100 224 196 / 36%); background: rgb(0 83 67 / 48%); }
   .detail-page--products .detail-feature-card, .detail-page--products .detail-feature-card:nth-child(2), .detail-page--products .detail-feature-card:nth-child(5) { min-height: 330px; }
   .detail-page--resources .detail-hero__content { width: 100%; }.detail-page--resources .detail-hero h1 { font-size: 58px; }.detail-page--resources .detail-heading { grid-template-columns: 1fr; }.detail-page--resources .detail-journey { margin: 0 20px 78px; }
 }
