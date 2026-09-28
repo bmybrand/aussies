@@ -9,8 +9,6 @@ import { OrderingSection } from "./components/OrderingSection";
 import { StatsSection } from "./components/StatsSection";
 import { SupportSection } from "./components/SupportSection";
 import { TestimonialSection } from "./components/TestimonialSection";
-import "./home.css";
-
 export default function HomePage() {
   return (
     <main className="home-page">

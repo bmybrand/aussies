@@ -1,19 +1,25 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { ArrowLink } from "./ArrowLink";
 
-const primaryNavItems = [
-  "Restaurants",
-  "Services",
-  "Retail",
-  "Healthcare",
-  "Products",
-  "Resources",
+const leftNavItems = [
+  { label: "Restaurants", href: "/restaurants" },
+  { label: "Services", href: "/services" },
+  { label: "Retail", href: "/retail" },
+];
+
+const rightNavItems = [
+  { label: "Healthcare", href: "/healthcare" },
+  { label: "Products", href: "/products" },
+  { label: "Resources", href: "/resources" },
 ];
 
 export function Header() {
+  const pathname = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const lastScrollY = useRef(0);
@@ -60,34 +66,28 @@ export function Header() {
   return (
     <header className={headerClassName}>
       <nav className="header-nav header-nav--primary" aria-label="Primary navigation">
-        {primaryNavItems.map((item) => (
-          <a href={`#${item.toLowerCase()}`} key={item}>{item}</a>
+        {leftNavItems.map((item) => (
+          <Link className={pathname === item.href ? "header-link--active" : ""} href={item.href} key={item.href}>{item.label}</Link>
         ))}
       </nav>
 
-      <a className="header-brand" href="#top" aria-label="Home">
+      <Link className="header-brand" href="/" aria-label="Aussie's POS home">
         <Image
           src="/images/brand/aussies-symbol.png"
           alt=""
-          width={72}
-          height={48}
+          width={104}
+          height={72}
           priority
         />
-      </a>
+      </Link>
 
-      <div className="header-actions">
-        <a href="#login">Log In</a>
-        <a className="header-action-secondary" href="#help">Help Center</a>
-        <a className="header-action-secondary" href="#pricing">Pricing</a>
-        <a className="header-action-secondary" href="#products">Shop systems</a>
-        <a className="cart-link" href="#cart" aria-label="Shopping cart">
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M3 4h2l2.1 10.1a2 2 0 0 0 2 1.6h7.8a2 2 0 0 0 2-1.6L20 7H6" />
-            <circle cx="9.5" cy="20" r="1" />
-            <circle cx="17" cy="20" r="1" />
-          </svg>
-        </a>
-        <ArrowLink className="header-cta">Contact sales</ArrowLink>
+      <div className="header-right">
+        <nav className="header-nav header-nav--secondary" aria-label="Secondary navigation">
+          {rightNavItems.map((item) => (
+            <Link className={pathname === item.href ? "header-link--active" : ""} href={item.href} key={item.href}>{item.label}</Link>
+          ))}
+        </nav>
+        <ArrowLink className="header-cta" href="/#contact">Contact sales</ArrowLink>
       </div>
     </header>
   );

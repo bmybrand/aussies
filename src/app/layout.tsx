@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import "./home/home.css";
+import "./detail.css";
 
 export const metadata: Metadata = {
-  title: "Northstar | Run your business with confidence",
-  description:
-    "Connected payments, people, and ordering tools for independent businesses.",
+  title: "Aussie's POS Solution | Smarter business tools",
+  description: "Connected point-of-sale, payments, hardware, and business tools for restaurants, retail, healthcare, and service teams.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
