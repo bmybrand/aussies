@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import { ArrowLink } from "./ArrowLink";
+import { useRevealOnce } from "./useRevealOnce";
 
 const devices = [
   { name: "Countertop", description: "A compact, efficient system made for busy counters.", kind: "mini" },
@@ -15,9 +16,10 @@ const devices = [
 export function HardwareShowcase() {
   const [activeDevice, setActiveDevice] = useState(0);
   const selectedDevice = devices[activeDevice];
+  const { ref, isVisible } = useRevealOnce();
 
   return (
-    <section className="hardware-wrap">
+    <section ref={ref} className={`hardware-wrap${isVisible ? " hardware-wrap--visible" : ""}`}>
       <div className="hardware-showcase">
         <Image
           className="hardware-background"

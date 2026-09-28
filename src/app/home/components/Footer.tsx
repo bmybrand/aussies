@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import { useRevealOnce } from "./useRevealOnce";
 
 const footerGroups = [
   { title: "Take payments", links: ["Card readers and POS devices", "Point of sale system", "Online ordering and sales", "Payment processing", "Invoicing", "Virtual Terminal"] },
@@ -27,8 +30,10 @@ function SocialIcon({ name }: { name: string }) {
 }
 
 export function Footer() {
+  const { ref, isVisible } = useRevealOnce(0.08);
+
   return (
-    <footer className="site-footer" id="contact">
+    <footer ref={ref} className={`site-footer${isVisible ? " site-footer--visible" : ""}`} id="contact">
       <div className="footer-directory">
         <a className="footer-logo" href="#top" aria-label="Aussie's POS Solution home">
           <Image src="/images/brand/aussies-pos-logo.png" alt="Aussie's POS Solution" width={280} height={150} />

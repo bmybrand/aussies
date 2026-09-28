@@ -1,8 +1,13 @@
+"use client";
+
 import Image from "next/image";
+import { useRevealOnce } from "./useRevealOnce";
 
 export function TestimonialSection() {
+  const { ref, isVisible } = useRevealOnce(0.22);
+
   return (
-    <section className="story-section" aria-label="Customer story">
+    <section ref={ref} className={`story-section${isVisible ? " story-section--visible" : ""}`} aria-label="Customer story">
       <div className="story-card">
         <Image
           src="/images/home/pizzeria-story.png"
