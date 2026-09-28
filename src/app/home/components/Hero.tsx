@@ -36,9 +36,9 @@ export function Hero() {
       <div className="hero-content">
         <h1>
           <SignLetters text="Aussie's POS for every" /><br />
-          <SignLetters text="small busines" offset={22} /><span className="loose-letter">
-            <span className="loose-letter__glyph">s</span>
-            <span className="loose-letter__sparks" aria-hidden="true">
+          <SignLetters text="small busines" offset={22} /><span className="surge-letter">
+            <span className="surge-letter__glyph">s</span>
+            <span className="surge-letter__sparks" aria-hidden="true">
               <i /><i /><i /><i /><i /><i />
             </span>
           </span>

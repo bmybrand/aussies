@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
+import { ArrowLink } from "./ArrowLink";
 
 const primaryNavItems = [
   "Restaurants",
@@ -86,7 +87,7 @@ export function Header() {
             <circle cx="17" cy="20" r="1" />
           </svg>
         </a>
-        <a className="header-cta" href="#contact">Contact sales</a>
+        <ArrowLink className="header-cta">Contact sales</ArrowLink>
       </div>
     </header>
   );

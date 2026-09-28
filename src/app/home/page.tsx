@@ -1,4 +1,5 @@
 import { CustomerStrip } from "./components/CustomerStrip";
+import { EcosystemSection } from "./components/EcosystemSection";
 import { Footer } from "./components/Footer";
 import { HardwareShowcase } from "./components/HardwareShowcase";
 import { Header } from "./components/Header";
@@ -23,6 +24,7 @@ export default function HomePage() {
       <StatsSection />
       <TestimonialSection />
       <OrderingSection />
+      <EcosystemSection />
       <SupportSection />
       <Footer />
     </main>

@@ -1,14 +1,34 @@
 const stats = [
-  { value: "125K+", label: "businesses growing with Northstar" },
-  { value: "99.99%", label: "platform uptime through every rush" },
-  { value: "$42B+", label: "processed securely each year" },
+  {
+    value: "125K+",
+    title: "Businesses supported",
+    description: "Helping hospitality, retail, and service teams keep moving.",
+  },
+  {
+    value: "99.99%",
+    title: "Platform uptime",
+    description: "Reliable performance designed for every shift and every rush.",
+  },
+  {
+    value: "$42B+",
+    title: "Processed securely",
+    description: "Payments protected across a connected point-of-sale platform.",
+  },
 ];
 
 export function StatsSection() {
   return (
     <section className="stats-section" aria-labelledby="stats-title">
-      <p className="eyebrow" id="stats-title">By the numbers</p>
-      <div className="stats-grid">{stats.map((stat) => <div className="stat" key={stat.value}><strong>{stat.value}</strong><span>{stat.label}</span></div>)}</div>
+      <h2 id="stats-title">Run the numbers</h2>
+      <div className="stats-grid">
+        {stats.map((stat) => (
+          <article className="stat" key={stat.value}>
+            <strong>{stat.value}</strong>
+            <h3>{stat.title}</h3>
+            <p>{stat.description}</p>
+          </article>
+        ))}
+      </div>
     </section>
   );
 }

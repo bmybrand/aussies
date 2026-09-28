@@ -2,9 +2,14 @@
 
 import { useRef, type ReactNode } from "react";
 
-type ArrowLinkProps = { children: ReactNode; dark?: boolean };
+type ArrowLinkProps = {
+  children: ReactNode;
+  className?: string;
+  dark?: boolean;
+  href?: string;
+};
 
-export function ArrowLink({ children, dark = false }: ArrowLinkProps) {
+export function ArrowLink({ children, className = "", dark = false, href = "#contact" }: ArrowLinkProps) {
   const wipeRef = useRef<HTMLSpanElement>(null);
   const animationRef = useRef<Animation | null>(null);
 
@@ -41,8 +46,8 @@ export function ArrowLink({ children, dark = false }: ArrowLinkProps) {
 
   return (
     <a
-      className={`arrow-link${dark ? " arrow-link--dark" : ""}`}
-      href="#contact"
+      className={`arrow-link${dark ? " arrow-link--dark" : ""}${className ? ` ${className}` : ""}`}
+      href={href}
       onPointerEnter={() => animateWipe(true)}
       onPointerLeave={() => animateWipe(false)}
       onFocus={() => animateWipe(true)}
