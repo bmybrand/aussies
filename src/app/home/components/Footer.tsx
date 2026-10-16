@@ -25,7 +25,7 @@ const footerGroups = [
   {
     title: "Talk to Aussie's",
     links: [
-      { label: "Toll Free: 1800-5748242", href: "tel:18005748242" },
+      { label: "Toll Free: 1800 574 824", href: "tel:1800574824" },
       { label: "155 Lonsdale St, Dandenong VIC 3175, Australia", href: "https://www.google.com/maps/search/?api=1&query=155%20Lonsdale%20St%2C%20Dandenong%20VIC%203175%2C%20Australia" },
       { label: "Find your fit", href: "/#solutions" },
       { label: "Explore hardware", href: "/products" },
