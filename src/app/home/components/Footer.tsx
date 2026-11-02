@@ -82,7 +82,7 @@ export function Footer() {
 
       <div className="footer-legal footer-legal--current">
         <div className="footer-disclaimer">
-          <p>© 2026 Aussie&apos;s POS Solution. All rights reserved.</p>
+          <p>© 2026 Aussie&apos;s POS Solution ABN 12 449 418 227. All rights reserved.</p>
           <p>Products, features, pricing, and service availability may vary by plan and location. Images and interface examples are shown for demonstration purposes.</p>
         </div>
         <nav className="footer-policies" aria-label="Legal information">
